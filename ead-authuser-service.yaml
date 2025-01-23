@@ -68,7 +68,7 @@ ead:
 
 authuser:
     refreshscope:
-        name: Ronaldo Melo UPDATE!!!!!!
+        name: Ronaldo Melo UPDATE!!!!!!!
 
 # Configuração do Spring Actuator e Refresh Scope
 management:
