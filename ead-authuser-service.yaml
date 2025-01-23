@@ -66,7 +66,25 @@ ead:
         exchange:
             userEvent: ead.userevent
 
+authuser:
+    refreshscope:
+        name: Ronaldo Melo
 
+# Configuração do Spring Actuator e Refresh Scope
+management:
+ endpoints:
+   web:
+     exposure:
+       # Lista de endpoints expostos via web
+       include:  # (correto seria "include")
+         # Endpoint para atualizar propriedades em runtime
+         # Usado com @RefreshScope para recarregar beans sem restart
+         # Endpoint: POST /actuator/refresh
+         - refresh
+
+         # Endpoint que retorna status da aplicação
+         # Endpoint: GET /actuator/health  
+         - health
 
 logging:
     level:
