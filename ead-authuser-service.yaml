@@ -68,7 +68,7 @@ ead:
 
 authuser:
     refreshscope:
-        name: Ronaldo Melo UPDATE!!!!
+        name: Ronaldo Melo UPDATE!!!!!!
 
 # Configuração do Spring Actuator e Refresh Scope
 management:
@@ -76,7 +76,7 @@ management:
    web:
      exposure:
        # Lista de endpoints expostos via web
-       include:  # (correto seria "include")
+       include:  
          # Endpoint para atualizar propriedades em runtime
          # Usado com @RefreshScope para recarregar beans sem restart
          # Endpoint: POST /actuator/refresh
