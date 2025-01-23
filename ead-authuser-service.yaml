@@ -66,6 +66,8 @@ ead:
         exchange:
             userEvent: ead.userevent
 
+
+
 logging:
     level:
         com.ead: TRACE # Logs mais detalhados para seu pacote específico
