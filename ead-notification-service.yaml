@@ -74,7 +74,7 @@ ead:
     exchange:
       notificationCommandExhange: ead.notificationcommand
     queue:
-      notificationcommandQueue:
+      notificationCommandQueue:
         name: ead.notificationcommand.ms.notification
     key:
       notificationcommandKey: ms.notification      
