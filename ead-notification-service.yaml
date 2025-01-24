@@ -77,7 +77,7 @@ ead:
       notificationCommandQueue:
         name: ead.notificationcommand.ms.notification
     key:
-      notificationcommandKey: ms.notification      
+      notificationCommandKey: ms.notification      
 
 # Configuração do Spring Actuator e Refresh Scope
 management:
