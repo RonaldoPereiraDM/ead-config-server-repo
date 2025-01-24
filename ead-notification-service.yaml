@@ -36,6 +36,7 @@ spring:
 flyway:
   #Essa propriedade serve para ativarmos o Flyway
   enabled: true
+  url: jdbc:postgresql://localhost:5452/ead-notification-v2
   locations: classpath:db/migration
 
   #Essa propriedade para criar uma tabela com as migrações e assim ter acesso ao histórico de modificações.
