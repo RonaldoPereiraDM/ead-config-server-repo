@@ -90,3 +90,5 @@ logging:
     root:  # Nível padrão para todos os logs não especificados
     org.springframework.web: DEBUG # Logs detalhados das requisições web
     org.hibernate: INFO  # Logs padrão do Hibernate
+    org.flywaydb: DEBUG
+    org.postgresql: DEBUG
