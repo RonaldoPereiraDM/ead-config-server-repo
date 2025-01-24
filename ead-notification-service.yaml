@@ -7,23 +7,23 @@ spring:
   application:
     name: ead-notification-service
   datasource:
-    url: jdbc:postgresql://localhost:5452/ead-notification-v2
+    url: jdbc:postgresql://postgresql-notification:5452/ead-notification-v2
     username: ronaldo
     password: ronaldo
   sql:
     init:
       mode: always
-    jpa:
+  jpa:
+    hibernate:
+      ddl-auto: none  # Importante: previne o Hibernate de tentar criar as tabelas
+    show-sql: true  
+    properties:
       hibernate:
-        ddl-auto: none  # Importante: previne o Hibernate de tentar criar as tabelas
-      show-sql: true  
-      properties:
-        hibernate:
-          default_schema: ead-notification-v2
-          dialect: org.hibernate.dialect.PostgreSQLDialect
-          jdbc:
-            lob:
-              non-contextual-creation: true
+        default_schema: ead-notification-v2
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+        jdbc:
+          lob:
+            non-contextual-creation: true
   output:
     ansi:
       enabled: Always # Habilita cores ANSI no console sempre
@@ -47,11 +47,11 @@ spring:
     clean-disabled: false
 
     # Permite que o Flyway crie os schemas se eles não existirem
-    # Útil durante o desenvolvimento, mas considere false em produção
+    # usar no desenvolvimento, mas deve ser valor false em produção
     create-schemas: false
 
     # Schema padrão onde o Flyway irá criar sua tabela de histórico e executar migrações
-    # Deve corresponder ao schema principal da sua aplicação
+    # Deve corresponder ao schema principal da aplicação
     default-schema: ead-notification-v2 
 
   rabbitmq:
