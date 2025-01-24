@@ -6,3 +6,19 @@ server:
 spring:
   application:
     name: ead-notification-service
+
+# Configuração do Spring Actuator e Refresh Scope
+management:
+ endpoints:
+   web:
+     exposure:
+       # Lista de endpoints expostos via web
+       include:  
+         # Endpoint para atualizar propriedades em runtime
+         # Usado com @RefreshScope para recarregar beans sem restart
+         # Endpoint: POST /actuator/refresh
+         - refresh
+
+         # Endpoint que retorna status da aplicação
+         # Endpoint: GET /actuator/health  
+         - health
