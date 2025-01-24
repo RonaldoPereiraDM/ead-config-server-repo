@@ -65,9 +65,14 @@ ead:
   broker:
     exchange:
       userEventExchange: ead.userevent
+      notificationCommandExchange: ead.notificationcommand
     queue:
       userEventQueue:
         name: ead.userevent.ms.course
+      notificationCommandQueue:
+        name: ead.notificationcommand.ms.notification  
+    key:
+      notificationCommandKey: ms.notification 
 
 # Configuração do Spring Actuator e Refresh Scope
 management:
