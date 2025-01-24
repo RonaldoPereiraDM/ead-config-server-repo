@@ -7,7 +7,7 @@ spring:
   application:
     name: ead-course-service
   datasource:
-    url: jdbc:postgresql://localhost:5440/ead-course-v2?currentSchema=ead-course-v2
+    url: jdbc:postgresql://localhost:5440/ead-course-v2
     username: ronaldo
     password: ronaldo
   sql:
@@ -36,6 +36,7 @@ spring:
     #Essa propriedade serve para ativarmos o Flyway
     enabled: true
     locations: classpath:db/migration
+
     #Essa propriedade para criar uma tabela com as migrações e assim ter acesso ao histórico de modificações.
     baseline-on-migrate: true
     user: ronaldo
