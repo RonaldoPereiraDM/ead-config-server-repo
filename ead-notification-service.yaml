@@ -33,32 +33,32 @@ spring:
     username: guest
     password: guest
 
-flyway:
-  #Essa propriedade serve para ativarmos o Flyway
-  enabled: true
-  url: jdbc:postgresql://localhost:5452/ead-notification-v2
-  locations: classpath:db/migration
+  flyway:
+    #Essa propriedade serve para ativarmos o Flyway
+    enabled: true
+    url: jdbc:postgresql://localhost:5452/ead-notification-v2
+    locations: classpath:db/migration
 
-  #Essa propriedade para criar uma tabela com as migrações e assim ter acesso ao histórico de modificações.
-  baseline-on-migrate: true
-  user: ronaldo
-  password: ronaldo
+    #Essa propriedade para criar uma tabela com as migrações e assim ter acesso ao histórico de modificações.
+    baseline-on-migrate: true
+    user: ronaldo
+    password: ronaldo
 
-  # Valida se as migrações aplicadas no banco correspondem aos arquivos de migração
-  # Ajuda a detectar mudanças não autorizadas nas migrações já executadas
-  validate-on-migrate: true
+    # Valida se as migrações aplicadas no banco correspondem aos arquivos de migração
+    # Ajuda a detectar mudanças não autorizadas nas migrações já executadas
+    validate-on-migrate: true
 
-  # Permite o uso do comando Flyway clean (que limpa todas as tabelas)
-  # CUIDADO: Em produção, isso deveria ser true para evitar deleção acidental dos dados
-  clean-disabled: false
+    # Permite o uso do comando Flyway clean (que limpa todas as tabelas)
+    # CUIDADO: Em produção, isso deveria ser true para evitar deleção acidental dos dados
+    clean-disabled: false
 
-  # Permite que o Flyway crie os schemas se eles não existirem
-  # usar no desenvolvimento, mas deve ser valor false em produção
-  create-schemas: false
+    # Permite que o Flyway crie os schemas se eles não existirem
+    # usar no desenvolvimento, mas deve ser valor false em produção
+    create-schemas: false
 
-  # Schema padrão onde o Flyway irá criar sua tabela de histórico e executar migrações
-  # Deve corresponder ao schema principal da aplicação
-  default-schema: ead-notification-v2 
+    # Schema padrão onde o Flyway irá criar sua tabela de histórico e executar migrações
+    # Deve corresponder ao schema principal da aplicação
+    default-schema: ead-notification-v2 
 
 logging:
     level:
@@ -68,6 +68,16 @@ logging:
         org.hibernate: INFO  # Logs padrão do Hibernate
         org.flywaydb: DEBUG
         org.postgresql: DEBUG
+
+ead:
+  broker:
+    exchange:
+      notificationCommandExhange: ead.notificationcommand
+    queue:
+      notificationcommandQueue:
+        name: ead.notificationcommand.ms.notification
+    key:
+      notificationcommandKey: ms.notification      
 
 # Configuração do Spring Actuator e Refresh Scope
 management:
