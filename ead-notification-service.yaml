@@ -7,7 +7,7 @@ spring:
   application:
     name: ead-notification-service
   datasource:
-    url: jdbc:postgresql://localhost:5452/ead-notification-v2?currentSchema=ead-notification-v2
+    url: jdbc:postgresql://localhost:5452/ead-notification-v2
     username: ronaldo
     password: ronaldo
   sql:
