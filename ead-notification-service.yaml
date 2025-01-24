@@ -7,23 +7,23 @@ spring:
   application:
     name: ead-notification-service
   datasource:
-    url: jdbc:postgresql://localhost:5052/ead-notification-v2
+    url: jdbc:postgresql://localhost:5052/ead-notification-v2?currentSchema=ead-notification-v2
     username: ronaldo
     password: ronaldo
   sql:
     init:
       mode: always
-  jpa:
-    show-sql: true
-    hibernate:
-      ddl-auto: none  # Importante: previne o Hibernate de tentar criar as tabelas
-    properties:
+    jpa:
       hibernate:
-        default_schema: ead-notification-v2
-        dialect: org.hibernate.dialect.PostgreSQLDialect
-        jdbc:
-          lob:
-            non-contextual-creation: true
+        ddl-auto: none  # Importante: previne o Hibernate de tentar criar as tabelas
+      show-sql: true  
+      properties:
+        hibernate:
+          default_schema: ead-notification-v2
+          dialect: org.hibernate.dialect.PostgreSQLDialect
+          jdbc:
+            lob:
+              non-contextual-creation: true
   output:
     ansi:
       enabled: Always # Habilita cores ANSI no console sempre
