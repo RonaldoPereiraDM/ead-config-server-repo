@@ -72,7 +72,7 @@ logging:
 ead:
   broker:
     exchange:
-      notificationCommandExhange: ead.notificationcommand
+      notificationCommandExchange: ead.notificationcommand
     queue:
       notificationCommandQueue:
         name: ead.notificationcommand.ms.notification
