@@ -5,7 +5,7 @@ server:
 
 spring:
   application:
-    name: ead-notification-service
+    name: ead-notification-service-hex
   datasource:
     url: jdbc:postgresql://localhost:5452/ead-notification-hex
     username: ronaldo
