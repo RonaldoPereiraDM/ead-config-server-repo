@@ -1,13 +1,13 @@
 server:
   port: 8084
   servlet:
-    context-path: '/ead-notification/'
+    context-path: '/ead-notification-hex/'
 
 spring:
   application:
     name: ead-notification-service
   datasource:
-    url: jdbc:postgresql://localhost:5452/ead-notification-v2
+    url: jdbc:postgresql://localhost:5452/ead-notification-hex
     username: ronaldo
     password: ronaldo
   sql:
@@ -19,7 +19,7 @@ spring:
     show-sql: true  
     properties:
       hibernate:
-        default_schema: ead-notification-v2
+        default_schema: ead-notification-hex
         dialect: org.hibernate.dialect.PostgreSQLDialect
         jdbc:
           lob:
@@ -36,7 +36,7 @@ spring:
   flyway:
     #Essa propriedade serve para ativarmos o Flyway
     enabled: true
-    url: jdbc:postgresql://localhost:5452/ead-notification-v2
+    url: jdbc:postgresql://localhost:5452/ead-notification-hex
     locations: classpath:db/migration
 
     #Essa propriedade para criar uma tabela com as migrações e assim ter acesso ao histórico de modificações.
@@ -58,7 +58,7 @@ spring:
 
     # Schema padrão onde o Flyway irá criar sua tabela de histórico e executar migrações
     # Deve corresponder ao schema principal da aplicação
-    default-schema: ead-notification-v2 
+    default-schema: ead-notification-hex
 
 logging:
     level:
