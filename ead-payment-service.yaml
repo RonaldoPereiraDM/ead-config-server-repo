@@ -54,7 +54,7 @@ spring:
 
     # Schema padrão onde o Flyway irá criar sua tabela de histórico e executar migrações
     # Deve corresponder ao schema principal da sua aplicação
-    default-schema: ead-payment-v2
+    default-schema: ead-payment-schema
 
 # Configuração do Spring Actuator e Refresh Scope
 management:
