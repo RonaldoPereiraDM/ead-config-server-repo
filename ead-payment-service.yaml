@@ -79,6 +79,8 @@ management:
          # Endpoint: GET /actuator/health  
          - health
          - metrics
+  security:
+    enabled: false         
 
 logging:
   level:
