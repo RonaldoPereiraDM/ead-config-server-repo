@@ -4,3 +4,100 @@ server:
 spring:
   application:
     name: ead-payment-service
+  datasource:
+    url: jdbc:postgresql://localhost:5460/ead-payment-v2
+    username: ronaldo
+    password: ronaldo
+  sql:
+    init:
+      mode: always
+  jpa:
+    hibernate:
+      ddl-auto: none  # Importante: previne o Hibernate de tentar criar as tabelas
+    show-sql: true
+    properties:
+      hibernate:
+        default_schema: ead-payment-v2
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+        jdbc:
+          lob:
+            non-contextual-creation: true
+  output:
+    ansi:
+      enabled: Always # Habilita cores ANSI no console sempre
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: guest
+    password: guest
+  flyway:
+    #Essa propriedade serve para ativarmos o Flyway
+    enabled: true
+    locations: classpath:db/migration
+
+    #Essa propriedade para criar uma tabela com as migrações e assim ter acesso ao histórico de modificações.
+    baseline-on-migrate: true
+    user: ronaldo
+    password: ronaldo
+
+    # Valida se as migrações aplicadas no banco correspondem aos arquivos de migração
+    # Ajuda a detectar mudanças não autorizadas nas migrações já executadas
+    validate-on-migrate: true
+
+    # Permite o uso do comando Flyway clean (que limpa todas as tabelas)
+    # CUIDADO: Em produção, isso deveria ser true para evitar deleção acidental dos dados
+    clean-disabled: false
+
+    # Permite que o Flyway crie os schemas se eles não existirem
+    # Útil durante o desenvolvimento, mas considere false em produção
+    create-schemas: false
+
+    # Schema padrão onde o Flyway irá criar sua tabela de histórico e executar migrações
+    # Deve corresponder ao schema principal da sua aplicação
+    default-schema: ead-payment-v2
+
+# Configuração do Spring Actuator e Refresh Scope
+management:
+ endpoints:
+   web:
+     exposure:
+       # Lista de endpoints expostos via web
+       include:  
+         # Endpoint para atualizar propriedades em runtime
+         # Usado com @RefreshScope para recarregar beans sem restart
+         # Endpoint: POST /actuator/refresh
+         - refresh
+
+         # Endpoint que retorna status da aplicação
+         # Endpoint: GET /actuator/health  
+         - health
+
+logging:
+  level:
+    com.ead: INFO # Logs mais detalhados para seu pacote específico
+    root:  # Nível padrão para todos os logs não especificados
+    org.springframework.web: INFO # Logs detalhados das requisições web
+    org.hibernate: INFO  # Logs padrão do Hibernate
+    org.flywaydb: INFO
+    org.postgresql: INFO
+
+openapi:
+  api:
+    info:
+      title: EAD Authuser
+      description: API responsável por trazer dados de usuários e realizar operações sobre usuário.
+      contact:
+        name: Ronaldo Melo
+        url: https://ronaldomelo.com.br
+        email: ronaldo.pereira.dm@gmail.com
+    url:
+      base: localhost:${server.port}
+
+springdoc:
+  api-docs:
+    enabled: true
+    path: /api-docs
+  swagger-ui:
+    path: /swagger-ui.html
+    operationsSorter: method
+    tagsSorter: alpha    
