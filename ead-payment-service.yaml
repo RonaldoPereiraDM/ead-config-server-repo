@@ -77,7 +77,8 @@ management:
 
          # Endpoint que retorna status da aplicação
          # Endpoint: GET /actuator/health  
-         - 'health,metrics'
+         - health
+         - metrics
 
 logging:
   level:
