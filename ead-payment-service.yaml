@@ -79,6 +79,14 @@ management:
           # Endpoint: GET /actuator/health  
           - health
           - metrics
+  endpoint:
+    health:
+      enable: true
+      show-details: always
+    metrics:
+      enable: true
+
+
   security:
     enabled: false         
 
