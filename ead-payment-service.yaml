@@ -22,14 +22,6 @@ spring:
         jdbc:
           lob:
             non-contextual-creation: true
-  output:
-    ansi:
-      enabled: Always # Habilita cores ANSI no console sempre
-  rabbitmq:
-    host: localhost
-    port: 5672
-    username: guest
-    password: guest
   flyway:
     #Essa propriedade serve para ativarmos o Flyway
     enabled: true
@@ -54,7 +46,22 @@ spring:
 
     # Schema padrão onde o Flyway irá criar sua tabela de histórico e executar migrações
     # Deve corresponder ao schema principal da sua aplicação
-    default-schema: ead-payment-schema
+    default-schema: ead-payment-schema            
+  output:
+    ansi:
+      enabled: Always # Habilita cores ANSI no console sempre
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: guest
+    password: guest
+ead:
+  broker:
+    exchange:
+      userEventExchange: ead.userevent
+    queue:
+      userEventQueue:
+        name: ead.userevent.ms.payment 
 
 # Configuração do Spring Actuator e Refresh Scope
 management:
