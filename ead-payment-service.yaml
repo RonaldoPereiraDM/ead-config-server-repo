@@ -59,10 +59,15 @@ ead:
   broker:
     exchange:
       userEventExchange: ead.userevent
+      paymentCommandExchange: ead.paymentCommand
     queue:
       userEventQueue:
-        name: ead.userevent.ms.payment 
-
+        name: ead.userevent.ms.payment
+      paymentCommandQueue:
+        name: ead.paymentcommand.ms.payment   
+    key:
+      paymentCommandKey: ms.payment
+              
 # Configuração do Spring Actuator e Refresh Scope
 management:
   endpoints:
