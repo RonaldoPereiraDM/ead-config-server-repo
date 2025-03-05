@@ -67,7 +67,9 @@ ead:
         name: ead.paymentcommand.ms.payment   
     key:
       paymentCommandKey: ms.payment
-              
+  stripe:
+    secretKey:: '{cipher}c93f4bbb6d3ff4ee4b7498c2b0ff8418abb75cdc9a44dc7862682a4ee302d0841bee2f1669bcedb6d816c9e8da00ae551f15434fc0ba90685d2eaa5be85710b542e66729fef750c6098269aaa4af7ba6424fb21d70a1807a3a71b0d51a42a03543b63ba07d62ca17f82044d0b79577cc3b9285ea79e8e6704c42c2e42cc8405a'  
+
 # Configuração do Spring Actuator e Refresh Scope
 management:
   endpoints:
