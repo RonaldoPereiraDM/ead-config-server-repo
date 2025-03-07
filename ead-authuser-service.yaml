@@ -67,7 +67,8 @@ ead:
             userEvent: ead.userevent
             paymentUserEvent: ead.paymentuserevent
         queue:
-            name: ead.paymentevent.ms.authuser
+            paymentEventQueue:
+                name: ead.paymentevent.ms.authuser
 
 authuser:
     refreshscope:
