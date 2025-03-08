@@ -65,7 +65,7 @@ ead:
     broker:
         exchange:
             userEvent: ead.userevent
-            paymentUserEvent: ead.paymentuserevent
+            paymentEvent: ead.paymentevent
         queue:
             paymentEventQueue:
                 name: ead.paymentevent.ms.authuser
