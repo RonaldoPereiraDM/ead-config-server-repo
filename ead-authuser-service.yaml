@@ -57,6 +57,9 @@ spring:
         # Schema padrão onde o Flyway irá criar sua tabela de histórico e executar migrações
         # Deve corresponder ao schema principal da sua aplicação
         default-schema: ead-authuser-v2
+        init-sqls: |
+            CREATE SCHEMA IF NOT EXISTS "ead-authuser-v2";
+            ALTER DATABASE "ead-authuser-v2" SET search_path TO "ead-authuser-v2";
 
 ead:
     api:
